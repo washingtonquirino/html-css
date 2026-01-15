@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitulo 11 imagens e audio</title>
+</head>
+<body>
+    <h1>Capítulo 11 – Imagens Dinâmicas</h1>
+    <h2>Imagem dinâmica</h2>
+    <picture>
+        <source media="(max-width: 750px)" srcset="imagens/foto-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imagens/foto-m.png" type="image/png">
+        <img src="imagens/foto-g.png" alt="Imagem flexível">
+    </picture>
+    <h2>Reproduzindo audio</h2>
+    <p>Vamos reproduzir o audio</p>
+    <audio preload="metadata" controls>
+        <source src="midia/HappyMistake.mp3" type="audio/mpeg">
+    </audio>
+    <!--Compatibilidade - mp3 wav ogg-->
+    <!--handbreak: para transformar arquivos de video-->
+
+</body>
+</html>

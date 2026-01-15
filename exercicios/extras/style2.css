@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+
+/* Bordas gerais */
+header, nav, main, section, article, aside, footer {
+    border: 2px solid #000;
+    padding: 10px;
+}
+
+/* Header */
+header {
+    margin-bottom: 10px;
+}
+
+nav {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Main */
+main {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Section */
+section {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Linha inferior dentro da section */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Articles */
+article {
+    flex: 3;
+    min-height: 120px;
+    text-align: center;
+}
+
+/* Aside interno */
+.row aside {
+    flex: 1;
+    text-align: center;
+}
+
+/* Aside principal */
+.aside-main {
+    flex: 1;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+}

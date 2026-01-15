@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grouping Tags e Semantic Tags</title>
+    <style>
+        body{
+            background-color: rgb(154, 215, 248);
+        }
+        header{
+            text-align: center;
+            background-color: #fff;
+            border: 2px solid red;
+        }
+        nav{
+            background-color: bisque;
+            border: 2px solid red;
+            margin: 15px 15px;
+        }
+        article{
+            background-color: #fff;
+            border: 2px solid red;
+            margin: 15px 0px;
+            text-align: center;
+        }
+        section{
+            background-color: #fff;
+            margin-top: 15px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            
+           
+            
+        }
+        article{
+            background-color: bisque;
+            border: 2px solid red;
+            margin: 15px;
+            
+        }
+        aside{
+            text-align: center;
+            background-color: #fbad6e;
+            border: 2px solid red;
+            margin: 15px 15px;
+            display: flex;
+        }
+        footer{
+            text-align: center;
+            background-color: #f7f38b;
+            border: 2px solid red;
+        }
+        #ladoesquerdo{
+            width: 200px;
+            height: 300px;
+            margin-left: 68%;
+        }
+        #ladoalado{
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meu site</h1>
+        <nav>link...</nav>
+    </header>
+    <main>
+        <section>
+            <article>
+                <h2>Título</h2>
+                <p>Texto do artigo</p>
+            </article>
+            <article id="ladoalado">
+                <h2>Título</h2>
+                <p>Texto do artigo Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae harum illum rerum nemo repellat! Debitis doloribus qui id cumque deleniti, vitae, voluptatem illum maxime quibusdam iure, modi labore nemo nihil. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur esse ipsam nihil nemo veritatis voluptatem, cum enim laboriosam sit ratione, autem animi deserunt debitis saepe est maxime minus cumque atque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptates. Vel voluptatum natus, dolore doloremque dolorum obcaecati quod sequi voluptatem molestias accusamus eum aliquid maiores error sed autem, cumque assumenda.</p>
+                <aside id="ladoesquerdo">
+                    Coteúdo periférico do artigo
+                </aside>
+            </article>
+        </section>
+        <aside>
+            conteúdo periférico do site
+        </aside>
+    </main>
+    <footer>
+        Conteudo do rodapé
+    </footer>
+</body>
+</html>
