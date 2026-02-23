@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jogo de Trilha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f6fb;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .tabuleiro {
+      display: grid;
+      grid-template-columns: repeat(14, 100px);
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .casa {
+      width: 100px;
+      height: 100px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      position: relative;
+    }
+
+    .especial {
+      background: #eeee13;
+      font-size: 12px;
+      font-weight: bolder;
+      
+    }
+
+    .inicio { background: #c8e6c9; }
+    .chegada { background: #31a909; }
+    .stop { background: #e94b24; }
+
+    .peao {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      cursor: grab;
+      
+    }
+
+    .p1 { background: red; }
+    .p2 { background: blue; }
+    .p3 { background: green; }
+    .p4 { background: purple; }
+    .p5 { background: orange; }
+    .p6 { background: brown; }
+
+    .instrucoes {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎲 Jogo de Trilha Matemática</h1>
+
+<div style="text-align:center; margin-bottom:15px;">
+  <label for="qtdPeoes"><strong>Quantidade de peões:</strong></label>
+  <select id="qtdPeoes">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6" selected>6</option>
+  </select>
+  <button id="iniciar">Iniciar jogo</button>
+  <button id="salvar">Salvar progresso</button>
+  <button id="carregar">Carregar progresso</button>
+</div>
+  <label for="qtdPeoes"><strong>Quantidade de peões:</strong></label>
+  <select id="qtdPeoes">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6" selected>6</option>
+  </select>
+  <button id="iniciar">Iniciar jogo</button>
+</div>
+
+<div class="tabuleiro" id="tabuleiro"></div>
+
+<div class="instrucoes">
+  <h3>Regras</h3>
+  <ul>
+    <li>Arraste o peão com o mouse, casa por casa.</li>
+    <li>Casas <strong>STOP</strong>: 1 rodada sem jogar.</li>
+    <li>Acerto: avance 2 casas.</li>
+    <li>Erro: permaneça na casa.</li>
+    <li>Vence quem chegar primeiro à <strong>CHEGADA</strong>.</li>
+  </ul>
+</div>
+
+<script>
+  const tabuleiro = document.getElementById('tabuleiro');
+
+  const casas = [
+    'INÍCIO','2','3','4','STOP','6','7','8','9','10','11','12','13','14','15 AVNCE 2 CASAS',
+    '16','17','18','19','20','21','22','23','24','25','26','27 VOLTE 3 CASAS','28','29','30','31 AVNCE 2 CASAS',
+    '32','33','34','35','36','37','38','39','40 VOLTE 3 CASAS','41','42','43','44',
+    '45','46 (JOGUE O DADO E TIRE UM NUMERO ÍMPAR) CASO CONTRÁRIO VOLTE DUAS CASAS','47','48','49','50','51 AVNCE 2 CASAS','52','53','54','55','56','STOP','58','59','60','61 VOLTE PARA A CASA 46',
+    '62','63','64','65','66','STOP ','68','69','70','71','72','73','CHEGADA'
+  ];
+
+  // Criar casas do tabuleiro
+  casas.forEach((texto, index) => {
+    const casa = document.createElement('div');
+    casa.classList.add('casa');
+
+    if (texto.includes('STOP')) casa.classList.add('stop');
+    if (texto === 'INÍCIO') casa.classList.add('inicio');
+    if (texto === 'CHEGADA') casa.classList.add('chegada');
+    if (texto.length > 5) casa.classList.add('especial');
+
+    casa.dataset.index = index;
+    casa.innerHTML = `<span>${texto}</span>`;
+    tabuleiro.appendChild(casa);
+  });
+
+  // Criar peões (movimentação independente)
+  const peoes = [];
+  const classes = ['p1','p2','p3','p4','p5','p6'];
+
+  function criarPeoes(qtd) {
+    peoes.length = 0;
+    document.querySelectorAll('.peao').forEach(p => p.remove());
+
+    for (let i = 0; i < qtd; i++) {
+      const peao = document.createElement('div');
+      peao.classList.add('peao', classes[i]);
+      peao.draggable = true;
+      peao.dataset.peaoId = i;
+      peao.dataset.posicao = 0;
+
+      peao.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('peaoId', peao.dataset.peaoId);
+      });
+
+      peoes.push(peao);
+      tabuleiro.children[0].appendChild(peao);
+    }
+  }
+
+  document.getElementById('iniciar').addEventListener('click', () => {
+    const qtd = parseInt(document.getElementById('qtdPeoes').value, 10);
+    criarPeoes(qtd);
+  });
+
+  // Salvar progresso no localStorage
+  document.getElementById('salvar').addEventListener('click', () => {
+    const estado = peoes.map(p => ({
+      id: p.dataset.peaoId,
+      posicao: p.dataset.posicao
+    }));
+    localStorage.setItem('jogoTrilhaProgresso', JSON.stringify({
+      qtd: peoes.length,
+      estado
+    }));
+    alert('Progresso salvo com sucesso!');
+  });
+
+  // Carregar progresso do localStorage
+  document.getElementById('carregar').addEventListener('click', () => {
+    const dados = localStorage.getItem('jogoTrilhaProgresso');
+    if (!dados) {
+      alert('Nenhum progresso salvo encontrado.');
+      return;
+    }
+
+    const progresso = JSON.parse(dados);
+    document.getElementById('qtdPeoes').value = progresso.qtd;
+    criarPeoes(progresso.qtd);
+
+    progresso.estado.forEach(info => {
+      const peao = peoes.find(p => p.dataset.peaoId == info.id);
+      const casa = document.querySelector(`.casa[data-index="${info.posicao}"]`);
+      if (peao && casa) {
+        casa.appendChild(peao);
+        peao.dataset.posicao = info.posicao;
+        organizarPeoes(casa);
+      }
+    });
+
+    alert('Progresso carregado!');
+  });('click', () => {
+    const qtd = parseInt(document.getElementById('qtdPeoes').value, 10);
+    criarPeoes(qtd);
+  });
+
+  // Permitir drop independente por casa
+  function organizarPeoes(casa) {
+    const peoesCasa = casa.querySelectorAll('.peao');
+    peoesCasa.forEach((p, i) => {
+      const col = i % 3;
+      const row = Math.floor(i / 3);
+      p.style.left = 10 + col * 25 + 'px';
+      p.style.top = 10 + row * 25 + 'px';
+    });
+  }
+
+  document.querySelectorAll('.casa').forEach(casa => {
+    casa.addEventListener('dragover', e => e.preventDefault());
+
+    casa.addEventListener('drop', e => {
+      e.preventDefault();
+      const id = e.dataTransfer.getData('peaoId');
+      const peao = peoes[id];
+      if (peao) {
+        casa.appendChild(peao);
+        organizarPeoes(casa);
+        peao.dataset.posicao = casa.dataset.index;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
