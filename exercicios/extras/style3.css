@@ -1,0 +1,115 @@
+@charset 'UTF-8';
+/*Define a codificação de caracteres do arquivo.
+
+UTF-8 permite usar acentos, símbolos e caracteres especiais sem erro.
+
+Deve ser a primeira linha do CSS.*/
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*O asterisco é o seletor universal.
+
+Aplica o estilo a todos os elementos da página.
+padding: 0px;
+
+Remove o espaçamento interno padrão dos elementos.
+
+margin: 0px;
+
+Remove o espaçamento externo padrão.
+
+Muito usado para “resetar” o navegador.
+
+box-sizing: border-box;
+
+Faz com que width e height incluam padding e borda.
+
+Facilita o controle de tamanho.
+
+*/
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0e1538;
+}
+
+/*display: flex;
+
+Ativa o Flexbox.
+
+Permite alinhar elementos facilmente.
+
+justify-content: center;
+
+Centraliza horizontalmente.
+
+align-items: center;
+
+Centraliza verticalmente.
+
+👉 Resultado: tudo dentro do body fica centralizado no meio da tela.
+
+height: 100vh;
+
+vh = viewport height.
+
+100vh = 100% da altura da tela.
+
+background-color: #0e1538;
+
+Define a cor de fundo (azul escuro).*/
+
+.box {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.box h1 {
+    color: rgba(226, 226, 226);
+    text-shadow: 2px 2px black;
+    font-size: 40px;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+.box::after{
+    position: absolute;
+    content: "";
+    background-color: #0e1538;
+    inset: 5px;
+    border-radius: 16px;
+}
+
+.box::before{
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 140%;
+    background: linear-gradient(#00ccff, #df00ff);
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
