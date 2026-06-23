@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu 01</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MeuSite</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        <button class="btn-cta">Entrar</button>
+    </nav>
+
+    <button id="meuBotao">Alternar Cor</button>
+    <div id="caixa" class="conteudo"></div>
+
+    <script>
+        const botao = document.getElementById('meuBotao');
+        const caixa = document.getElementById('caixa');
+
+        botao.addEventListener('click', function() {
+            caixa.classList.toggle('ativo');
+        });
+    </script>
+
+    <div id="explicacao">
+        <h1>Explicação do código, utilizando o método toggle( )</h1><br>
+        <p>O método <strong>toggle()</strong> é usado para alternar a presença de uma classe em um elemento. Quando o botão é clicado, ele verifica se a classe 'ativo' está presente na div com id 'caixa'. Se estiver presente, a classe é removida; se não estiver, a classe é adicionada. Isso permite que você alterne entre dois estados diferentes de estilo para o elemento.</p> 
+
+        <h2>O passo a passo</h2>
+        <div id="passo-a-passo">
+
+            <h3>1. A Captura dos Elementos (As Variáveis)</h3>
+
+            <div id="passo1">
+                <p class="subtitulos"><strong>JavaScript</strong></p>
+
+                <p>const botao = document.getElementById('meuBotao');</p>
+                <p>const caixa = document.getElementById('caixa');</p>
+            </div>
+
+            <p>O que está acontecendo: O JavaScript está saindo do "mundo dele" e entrando no "mundo do HTML" (o DOM — Document Object Model) para procurar dois elementos específicos usando os IDs que você definiu no HTML (meuBotao e caixa).
+
+            O Motivo: O JavaScript sozinho não sabe o que existe na sua tela. Para que ele consiga modificar ou ouvir um elemento, ele precisa primeiro de uma referência a ele.
+
+            As Entrelinhas: Usamos const (constante) porque a referência ao elemento não vai mudar. O botão sempre será aquele botão, mesmo que as propriedades dele mudem depois.
+
+            document.getElementById é como um sistema de GPS: ele varre o documento inteiro em busca de um ID único. É uma das formas mais rápidas e eficientes de capturar um elemento. </p>
+
+            <h3>3. A Alternância de Estado (A Mágica do Toggle)</h3>
+
+            <div id="passo1">
+                <p class="subtitulos"><strong>JavaScript</strong></p>
+
+                <p>caixa.classList.toggle('ativo');</p>
+            </div>
+
+            <p>O que está acontecendo: Quando o botão é clicado, o JavaScript vai até a caixa. Ele acessa a lista de classes CSS dela (classList) e executa o método .toggle('ativo').
+
+            O Motivo: Esse método automatiza um processo que, antigamente, exigia várias linhas de código com if e else.
+
+            As Entrelinhas (O significado profundo): Por trás dos panos, o que o navegador faz ao ler essa linha é exatamente isto:</p>
+            
+            <div id="passo1">
+                <p class="subtitulos"><strong>JavaScript</strong></p>
+
+                <p>O que o .toggle() faz secretamente por você:
+                if (caixa.classList.contains('ativo')) {
+                    caixa.classList.remove('ativo'); // Se já tem a classe, ele tira
+                } else {
+                    caixa.classList.add('ativo');    // Se não tem, ele coloca
+                }</p>
+            </div>
+
+            <p>Ao adicionar ou remover a classe ativo, o JavaScript dispara uma reação em cadeia. O navegador percebe que o HTML mudou, olha para o seu arquivo CSS, vê as regras estilizadas para .caixa.ativo (como mudar de cor, sumir ou aparecer) e renderiza a nova aparência na tela.</p>
+
+            <p>Ao adicionar ou remover a classe ativo, o JavaScript dispara uma reação em cadeia. O navegador percebe que o HTML mudou, olha para o seu arquivo CSS, vê as regras estilizadas para .caixa.ativo (como mudar de cor, sumir ou aparecer) e renderiza a nova aparência na tela.</p>
+        </div>
+
+    </div>
+</body>
+</html>

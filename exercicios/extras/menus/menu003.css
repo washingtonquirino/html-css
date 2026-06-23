@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #111;
+  color: white;
+  position: relative;
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+/* Estado oculto dos links (você pode alternar a classe via JS) */
+.mobile-links {
+  display: none; 
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  list-style: none;
+  flex-direction: column;
+  text-align: center;
+}
+
+.mobile-links li a {
+  display: block;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+/* Classe utilitária para ativar via JavaScript (.mobile-links.active) */
+.mobile-links.active {
+  display: flex;
+}
+
+/* --- Animação para transformar o Hambúrguer em X --- */
+
+/* Esconde a listra do meio */
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+/* Gira a listra de cima */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+/* Gira a listra de baixo */
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}

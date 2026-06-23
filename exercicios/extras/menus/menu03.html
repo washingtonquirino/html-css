@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu003.css">
+    <title>Menu 03</title>
+</head>
+<body>
+    <nav class="mobile-nav">
+        <div class="logo">MobileApp</div>
+        
+        <!-- Ícone do Hambúrguer -->
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Links que aparecem/somem -->
+        <ul class="mobile-links">
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Portfólio</a></li>
+        </ul>
+    </nav>
+    <script>
+        // 1. Captura o botão do hambúrguer e a lista de links
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileLinks = document.querySelector('.mobile-links');
+
+        // 2. Adiciona o ouvinte de clique no botão
+        menuToggle.addEventListener('click', () => {
+        // Alterna a classe 'active' na lista para fazer o menu sumir/aparecer
+        mobileLinks.classList.toggle('active');
+        
+        // Alterna a classe 'active' no próprio botão (para o efeito visual do X)
+        menuToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

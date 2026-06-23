@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: #007bff; /* Cor de destaque */
+}
+
+.btn-cta {
+  padding: 0.5rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#meuBotao {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.conteudo {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(83, 177, 10);
+  transition: background 0.3s;
+  margin-top: 10px;
+  border-radius: 50%;
+}
+
+/* A classe que será "ligada e desligada" */
+.conteudo.ativo {
+  background-color: #ff0000;
+}
+
+#explicacao {
+    
+    padding: 10px;
+    
+}
+
+p, h2{
+    text-align: justify;
+    margin: 10px;
+}
+#passo1 {
+    display: block;
+    color: #fff;
+    background-color: #343534;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
