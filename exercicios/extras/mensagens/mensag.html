@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Alguém Especial ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe5ec, #ffb3c6, #ff85a1);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* CORREÇÃO AQUI: Impede que os corações criem barras de rolagem */
+            overflow: hidden; 
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Efeito de corações flutuantes no fundo */
+        .heart-bg {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 75, 110, 0.3);
+            animation: float 6s linear infinite;
+            bottom: -50px;
+            z-index: 1;
+            pointer-events: none; /* Garante que os corações não atrapalhem os cliques */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Container que segura os cartões com scroll interno caso a tela seja pequena */
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+            max-height: 90vh;
+            overflow-y: auto; /* Se as mensagens forem muito grandes, o scroll fica só aqui dentro */
+            padding: 10px;
+        }
+
+        /* Remove a barra de rolagem visual do container para ficar mais limpo */
+        .container::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        h1 {
+            color: #c9184a;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            color: #590d22;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Cartões de Mensagem */
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #ff4d6d;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            display: none;
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-top: 15px;
+            border-top: 1px dashed #ffb3c6;
+            padding-top: 15px;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Para Mozão ❤️</h1>
+        <p class="subtitle">Um Recomeço</p>
+        <p class="subtitle">Clique nos cartões abaixo...</p>
+
+        <img src="./imagens2/foto02.png" alt="Imagem de amor" style="width: 570px; border-radius: 10px;">
+
+
+        <div class="card" onclick="toggleMessage(this)">
+            <h3>✨ Te Amo!</h3>
+            <div class="message">
+                Sinto que estamos em um novo capítulo da nossa história. Quero que saiba que cada momento com você é especial e que estou ansioso para todos os que ainda vamos compartilhar. Te amo mais do que palavras podem expressar!
+                Sei que às vezes a vida nos testa, mas quero que saiba que estou aqui para você, sempre. Que possamos continuar construindo nossa história juntos, com amor, respeito e carinho. Você é a melhor parte de mim e quero passar cada dia ao seu lado. Que Deus nos abençoe e nos guie em cada passo que damos juntos. Te amo!!!
+            </div>
+        </div>
+
+        <img src="./imagens2/foto03.png" alt="Imagem de amor" style="width: 570px; border-radius: 10px;">
+        
+        <div class="card" onclick="toggleMessage(this)">
+            
+            <h3>🌹 O que eu mais amo em nós</h3>
+            <div class="message">
+                Sua convicção, sua força e seu amor incondicional naquilo que faz. Cada momento que passamos juntos é uma lembrança preciosa que guardo no meu coração. A forma como você me entende, mesmo quando eu não consigo me expressar, é algo que valorizo profundamente. Gosto da nossa cumplicidade, nossas risadas e até mesmo nossos desafios, porque sei que juntos podemos superar qualquer coisa. Você é minha inspiração diária e a razão pela qual eu acordo todos os dias. Mesmo quando tive minhas dúvidas, você sempre esteve lá para me apoiar e me lembrar do que realmente importa. Obrigado por ainda insistir em nós, mesmo quando as coisas pareciam difíceis. Você me tornou uma mais madura, obrigado por isso. E mesmo que eu não diga isso com frequência, quero que saiba que você é a pessoa mais importante da minha vida e que eu te amo profundamente.
+            </div>
+        </div>
+
+        <img src="./imagens2/foto04.png" alt="Imagem de amor" style="width: 570px; border-radius: 10px;">
+
+        <div class="card" onclick="toggleMessage(this)">
+            <h3>🔒 Uma promessa</h3>
+            <div class="message">
+                Espero que possamos continuar a construir nossa história juntos, com amor, respeito e carinho. Que possamos superar qualquer desafio que a vida nos apresente, sempre apoiando um ao outro. Prometo estar ao seu lado em todos os momentos, celebrando as alegrias e enfrentando as dificuldades juntos. Que nosso amor continue a crescer e florescer, e que possamos sempre lembrar do quanto somos importantes um para o outro. 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMessage(card) {
+            const message = card.querySelector('.message');
+            if (message.style.display === 'block') {
+                message.style.display = 'none';
+            } else {
+                message.style.display = 'block';
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            heart.innerHTML = '❤️';
+            // Ajuste para o coração não nascer grudado na borda direita e quebrar a tela
+            heart.style.left = Math.random() * 95 + 'vw'; 
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            heart.style.fontSize = Math.random() * 15 + 15 + 'px';
+            
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
