@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu responsivo</title>
+    <link rel="stylesheet" href="menu004.css">
+</head>
+<body>
+
+    <nav class="menu-container">
+        <div class="logo">MeuLogo</div>
+    
+    <!-- O botão hambúrguer (com 3 linhas internas) -->
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="menu-links">
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        const toggleButton = document.querySelector('.menu-toggle');
+        const menuLinks = document.querySelector('.menu-links');
+
+        toggleButton.addEventListener('click', () => {
+            // Liga/desliga a classe "active" que mostra os links
+            menuLinks.classList.toggle('active');
+            
+            // Liga/desliga a classe "active" no botão para animar o "X"
+            toggleButton.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
