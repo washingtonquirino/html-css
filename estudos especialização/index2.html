@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Sequência Didática - Dedução de Fórmulas e Modelo de Despoluição</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 30px; color: #333; line-height: 1.4; }
+  h1 { font-size: 18pt; text-align: center; color: #1a365d; margin-bottom: 5px; }
+  h2 { font-size: 13pt; color: #2b6cb0; border-bottom: 2px solid #2b6cb0; padding-bottom: 4px; margin-top: 20px; }
+  h3 { font-size: 10.5pt; color: #2d3748; margin-top: 15px; }
+  p, li { font-size: 9.5pt; }
+  blockquote { background: #edf2f7; border-left: 4px solid #4a5568; margin: 10px 0; padding: 10px; font-style: italic; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 8.5pt; }
+  th, td { border: 1px solid #cbd5e0; padding: 5px; text-align: center; }
+  th { background-color: #e2e8f0; }
+  .page-break { page-break-before: always; }
+  .header-box { border: 1px solid #a0aec0; padding: 8px; margin-bottom: 15px; border-radius: 4px; }
+  .space-box { border-bottom: 1px dotted #a0aec0; height: 35px; margin-bottom: 8px; }
+  .formula-box { background: #f7fafc; border: 1px dashed #4a5568; padding: 8px; margin: 10px 0; font-family: monospace; }
+</style>
+</head>
+<body>
+
+<!-- VERSÃO DO PROFESSOR -->
+<h1>SEQUÊNCIA DIDÁTICA: DEDUÇÃO DE FÓRMULAS E DESPOLUIÇÃO</h1>
+<p style="text-align: center; font-weight: bold; color: #c53030;">VERSÃO DO PROFESSOR (ORIENTAÇÕES E DEDUÇÕES)</p>
+
+<h2>1. CONTEXTUALIZAÇÃO INICIAL</h2>
+<blockquote>
+  "Imagine um lago de águas cristalinas cercado por vegetação e fauna abundante. A comunidade local vive do lago, nadando e utilizando suas águas para consumo e sustentáculo. Porém, com o crescimento urbano desordenado, o esgoto e resíduos industriais passaram a ser descartados diretamente nele. O ecossistema entrou em colapso. Anos depois, projetos ambientais interromperam a contaminação e contaram com a purificação natural. Como prever a velocidade de limpeza desse lago usando matemática?"
+</blockquote>
+
+<h2>2. ROTEIRO PASSO A PASSO DA DEDUÇÃO (AULAS 1 E 2)</h2>
+
+<h3>Passo 1: Entendendo a Razão de Retenção</h3>
+<p>Volume total $= 2.000\text{ mL}$. Poluente inicial ($a_1$) $= 200\text{ mL}$.<br>
+A cada ciclo retira-se $\frac{1}{5}$ ($20\%$) da mistura. Se retiramos $\frac{1}{5}$, **permanecem** no lago $\frac{4}{5}$ ($80\%$ ou $0,8$) do poluente anterior.</p>
+
+<h3>Passo 2: Construindo a Fórmula Recursiva</h3>
+<p>A fórmula recursiva depende **exclusivamente do termo anterior** para calcular o próximo termo:</p>
+<div class="formula-box">
+  a₂ = 0,8 · a₁<br>
+  a₃ = 0,8 · a₂<br>
+  a₄ = 0,8 · a₃<br>
+  ...<br>
+  <strong>Fórmula Recursiva:</strong> a<sub>n</sub> = 0,8 · a<sub>n-1</sub> &nbsp;&nbsp;(para n ≥ 2, com a₁ = 200)
+</div>
+<p><em>Vantagem:</em> Fácil de entender no passo a passo.<br>
+<em>Limitação:</em> Para saber a quantidade no 50º dia, precisamos calcular obrigatoriamente todos os 49 dias anteriores.</p>
+
+<h3>Passo 3: Transformando em Fórmula Fechada (Termo Geral)</h3>
+<p>Para eliminar a dependência dos termos intermediários, substituímos as equações recursivas sucessivamente:</p>
+<div class="formula-box">
+  a₁ = 200<br>
+  a₂ = 200 · (0,8)¹<br>
+  a₃ = a₂ · (0,8) = [200 · (0,8)] · (0,8) = 200 · (0,8)²<br>
+  a₄ = a₃ · (0,8) = [200 · (0,8)²] · (0,8) = 200 · (0,8)³<br>
+  ...<br>
+  <strong>Fórmula Fechada (Termo Geral):</strong> a<sub>n</sub> = 200 · (0,8)<sup>n-1</sup>
+</div>
+<p><em>Vantagem:</em> Permite calcular diretamente qualquer dia $n$ sem precisar calcular os dias anteriores.</p>
+
+<h2>3. GABARITO E FEEDBACK ESPERADO</h2>
+<p><strong>Diferença Chave:</strong> A fórmula recursiva vincula um termo ao seu antecedente imediato ($a_n$ em função de $a_{n-1}$). A fórmula fechada vincula qualquer termo diretamente à sua posição ($a_n$ em função de $n$).</p>
+
+<!-- QUEBRA DE PÁGINA PARA A VERSÃO DO ALUNO -->
+<div class="page-break"></div>
+
+<!-- VERSÃO DO ALUNO -->
+<h1>ATIVIDADE PRÁTICA: DEDUÇÃO DE FÓRMULAS E O MODELO DE DESPOLUIÇÃO</h1>
+
+<div class="header-box">
+  <p><strong>Nome do Aluno:</strong> ____________________________________________________ <strong>Data:</strong> ____/____/2026<br>
+  <strong>Turma:</strong> __________________ <strong>Disciplina:</strong> Matemática</p>
+</div>
+
+<h2>1. CONTEXTUALIZAÇÃO</h2>
+<blockquote>
+  "Imagine um lago de águas cristalinas cercado por vegetação e fauna abundante. A comunidade local vive do lago, nadando e utilizando suas águas para consumo e sustentáculo. Porém, com o crescimento urbano desordenado, o esgoto e resíduos industriais passaram a ser descartados diretamente nele. O ecossistema entrou em colapso. Anos depois, projetos ambientais interromperam a contaminação e contaram com a purificação natural. Como prever a velocidade de limpeza desse lago usando matemática?"
+</blockquote>
+
+<h2>2. INVESTIGAÇÃO GUIADA: DEDUZINDO AS FÓRMULAS</h2>
+
+<h3>Etapa A: Construindo a Fórmula Recursiva (Passo a Passo)</h3>
+<p>1. O lago possui $200\text{ mL}$ de poluente. A cada troca, retiramos $20\%$ ($\frac{1}{5}$) e mantemos $80\%$ ($\frac{4}{5}$ ou $0,8$) do volume. Escreva a quantidade de poluente de cada dia dependendo <strong>apenas do dia anterior</strong>:</p>
+<ul>
+  <li>Dia 1 ($a_1$) = $200\text{ mL}$</li>
+  <li>Dia 2 ($a_2$) = $0,8 \cdot a_1 = 0,8 \cdot 200 = 160\text{ mL}$</li>
+  <li>Dia 3 ($a_3$) = $0,8 \cdot a_2 =$ ______ $\text{mL}$</li>
+  <li>Dia 4 ($a_4$) = $0,8 \cdot a_3 =$ ______ $\text{mL}$</li>
+</ul>
+<p><strong>Definição da Fórmula Recursiva:</strong> Como calculamos o termo $a_n$ usando o termo anterior $a_{n-1}$?<br>
+Escreva a fórmula: $a_n =$ _________________________</p>
+
+<h3>Etapa B: Construindo a Fórmula Fechada (Termo Geral)</h3>
+<p>2. Agora, observe a substituição direta sem calcular o resultado intermediário:</p>
+<ul>
+  <li>Dia 1 ($a_1$) = $200$</li>
+  <li>Dia 2 ($a_2$) = $200 \cdot (0,8)^1$</li>
+  <li>Dia 3 ($a_3$) = $(200 \cdot 0,8) \cdot 0,8 = 200 \cdot (0,8)^2$</li>
+  <li>Dia 4 ($a_4$) = $(200 \cdot 0,8^2) \cdot 0,8 = 200 \cdot (0,8)^3$</li>
+</ul>
+<p><strong>Definição da Fórmula Fechada:</strong> Note o expoente de $0,8$ em relação ao dia $n$.<br>
+Escreva a fórmula fechada em função apenas de $n$: $a_n =$ _________________________</p>
+
+<h2>3. FICHA AVALIATIVA E FEEDBACK DO ALUNO</h2>
+
+<p><strong>1. Comparação de Métodos:</strong> Se você precisasse descobrir a quantidade de poluente no <strong>100º dia</strong> de despoluição, qual das duas fórmulas escolheria utilizar (Recursiva ou Fechada)? Justifique sua resposta apontando a diferença entre elas.</p>
+<div class="space-box"></div>
+<div class="space-box"></div>
+
+<p><strong>2. Aplicação Direta:</strong> Calcule o volume de poluente restante no 5º dia utilizando diretamente a <strong>Fórmula Fechada</strong> deduzida.</p>
+<div class="space-box"></div>
+
+<hr>
+<h3>4. FEEDBACK DA ATIVIDADE (OPINIÃO DO ALUNO)</h3>
+
+<p><strong>A. Sobre a dedução das fórmulas:</strong><br>
+( &nbsp; ) Consegui entender claramente a diferença entre a fórmula recursiva e a fechada.<br>
+( &nbsp; ) Entendi o cálculo, mas ainda tenho dificuldades para aplicar sozinho(a).<br>
+( &nbsp; ) Achei confuso o processo de dedução das fórmulas.</p>
+
+<p><strong>B. Qual etapa facilitou mais o seu aprendizado?</strong><br>
+( &nbsp; ) A história/simulação prática do lago.<br>
+( &nbsp; ) O passo a passo de substituição na tabela.<br>
+( &nbsp; ) A explicação teórica do professor.</p>
+
+<p><strong>C. Espaço para comentários, dúvidas ou sugestões sobre a aula:</strong></p>
+<div class="space-box"></div>
+<div class="space-box"></div>
+
+</body>
+</html>

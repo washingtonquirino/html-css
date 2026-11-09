@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parábola Lab - Jogo de Função Quadrática</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Parábola Lab: Função Quadrática</h1>
+      <div class="hud" aria-live="polite">
+        <span>Nível: <strong id="level-display">1</strong></span>
+        <span>Pontuação: <strong id="score-display">0</strong></span>
+      </div>
+    </header>
+
+    <!-- Estrutura Lado a Lado (Grid) -->
+    <div class="main-content">
+      
+      <!-- Coluna da Esquerda: Teoria e Controles -->
+      <div class="left-column">
+        <section class="card theory-card">
+          <h2>Conceito do Nível</h2>
+          <p id="level-description">
+            Ajuste os parâmetros do canhão para fazer a trajetória parabólica atingir o alvo. Acompanhe a distância no solo (x) e a altura (y).
+          </p>
+          <div class="equation-box">
+            Equação: <span id="equation-display">y = -0.50x² + 5.00x + 0.00</span>
+          </div>
+        </section>
+
+        <section class="card controls-card">
+          <h2>Controles da Parábola</h2>
+          
+          <div class="control-group">
+            <label for="input-a">Coeficiente a (Concavidade): <span id="val-a">-0.50</span></label>
+            <input type="range" id="input-a" min="-2" max="-0.1" step="0.05" value="-0.50">
+          </div>
+
+          <div class="control-group">
+            <label for="input-b">Coeficiente b (Impulso/Ângulo): <span id="val-b">5.00</span></label>
+            <input type="range" id="input-b" min="1" max="12" step="0.25" value="5.00">
+          </div>
+
+          <div class="control-group">
+            <label for="input-c">Coeficiente c (Altura Inicial): <span id="val-c">0.00</span></label>
+            <input type="range" id="input-c" min="0" max="5" step="0.25" value="0.00">
+          </div>
+
+          <div class="control-group-toggle">
+            <button id="btn-toggle-height" class="btn btn-secondary" aria-pressed="false">
+              Indicador Altura (Y): OFF
+            </button>
+            <button id="btn-toggle-ruler" class="btn btn-secondary active" aria-pressed="true">
+              Régua Distância (X): ON
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Coluna da Direita: Simulação com Novo Plano de Fundo -->
+      <div class="right-column">
+        <section class="canvas-container">
+          <canvas id="gameCanvas" width="800" height="500" role="img" aria-label="Simulação de lançamento parabólico com cenário de fundo interativo."></canvas>
+          <button id="btn-launch" class="btn btn-primary">Fogo! (Lançar Projétil)</button>
+        </section>
+
+        <div id="feedback" class="feedback-box" role="status" aria-live="assertive"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

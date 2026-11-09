@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Sequência Didática - Despoluição e Probabilidade Geométrica</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 30px; color: #333; line-height: 1.4; }
+  h1 { font-size: 18pt; text-align: center; color: #1a365d; margin-bottom: 5px; }
+  h2 { font-size: 14pt; color: #2b6cb0; border-bottom: 2px solid #2b6cb0; padding-bottom: 4px; margin-top: 20px; }
+  h3 { font-size: 11pt; color: #2d3748; margin-top: 15px; }
+  p, li { font-size: 10pt; }
+  blockquote { background: #edf2f7; border-left: 4px solid #4a5568; margin: 10px 0; padding: 10px; font-style: italic; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 9pt; }
+  th, td { border: 1px solid #cbd5e0; padding: 6px; text-align: center; }
+  th { background-color: #e2e8f0; }
+  .page-break { page-break-before: always; }
+  .header-box { border: 1px solid #a0aec0; padding: 8px; margin-bottom: 15px; border-radius: 4px; }
+  .space-box { border-bottom: 1px dotted #a0aec0; height: 40px; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<!-- VERSÃO DO PROFESSOR -->
+<h1>SEQUÊNCIA DIDÁTICA: MODELO DE DESPOLUIÇÃO</h1>
+<p style="text-align: center; font-weight: bold; color: #c53030;">VERSÃO DO PROFESSOR (COM GABARITO)</p>
+
+<h2>1. Contextualização Inicial</h2>
+<blockquote>
+  "Imagine um lago de águas cristalinas cercado por vegetação e fauna abundante. A comunidade local vive do lago, nadando e utilizando suas águas para consumo e sustentáculo. Porém, com o crescimento urbano desordenado, o esgoto e resíduos industriais passaram a ser descartados diretamente nele. O ecossistema entrou em colapso.<br><br>
+  Anos depois, projetos ambientais e biólogos interromperam a contaminação e contaram com a ação natural de microrganismos decompositores para realizar a purificação. Mas surge a grande dúvida dos engenheiros e da população local: <strong>Se interrompermos a poluição hoje, em quanto tempo o lago estará limpo de verdade? E como podemos calcular as chances cotidianas e os riscos associados a eventos futuros utilizando a Matemática?</strong>"
+</blockquote>
+
+<h2>2. Roteiro das Aulas (90 min)</h2>
+<ul>
+  <li><strong>Aula 1 (45 min):</strong> Contextualização (10 min); Prática em grupos com vasilhames PET simulando o lago com 200 mL de poluente em 2.000 mL de solução (20 min); Registro das 5 trocas sucessivas (15 min).</li>
+  <li><strong>Aula 2 (45 min):</strong> Formalização da PG e dedução da fórmula fechada $a(n) = 200 \cdot (0,8)^{n-1}$ (20 min); Discussão sobre comportamento assintótico e análise de riscos (15 min); Aplicação da Ficha Avaliativa (10 min).</li>
+</ul>
+
+<h2>3. Gabarito dos Exercícios e Tabela</h2>
+<p><strong>P1:</strong> Fração = $200 / 2.000 = 1/10$ (10%). Ao retirar $400\text{ mL}$, saem $40\text{ mL}$ de poluente. Restam $160\text{ mL}$.<br>
+<strong>P2:</strong> Erro ao considerar redução constante em volume absoluto em vez de proporcional (1/5 da quantidade remanescente).</p>
+
+<table>
+  <tr><th>Período ($n$)</th><th>Cálculo do Volume ($a(n)$)</th><th>Volume Restante (mL)</th></tr>
+  <tr><td>$n = 1$ (Início)</td><td>Valor Inicial</td><td>200,00 mL</td></tr>
+  <tr><td>$n = 2$ (1ª troca)</td><td>$200 \times 0,8$</td><td>160,00 mL</td></tr>
+  <tr><td>$n = 3$ (2ª troca)</td><td>$160 \times 0,8$</td><td>128,00 mL</td></tr>
+  <tr><td>$n = 4$ (3ª troca)</td><td>$128 \times 0,8$</td><td>102,40 mL</td></tr>
+  <tr><td>$n = 5$ (4ª troca)</td><td>$102,4 \times 0,8$</td><td>81,92 mL</td></tr>
+  <tr><td>$n$-ésimo dia</td><td>$a(n) = 200 \cdot (0,8)^{n-1}$</td><td>Termo Geral</td></tr>
+</table>
+
+<p><strong>Gabarito da Ficha Avaliativa:</strong><br>
+1. <strong>B</strong> (PG de razão $q = 0,8$)<br>
+2. <strong>Falsa.</strong> A remoção de 20% incide sobre o volume remanescente.<br>
+3. Nossa intuição é linear, enquanto fenômenos exponenciais progridem de forma não intuitiva a médio e longo prazo.<br>
+4. <strong>C</strong> ($a(n) = 1000 \cdot (0,9)^{n-1}$)<br>
+5. Resposta pessoal reflexiva do aluno.</p>
+
+<!-- QUEBRA DE PÁGINA PARA A VERSÃO DO ALUNO -->
+<div class="page-break"></div>
+
+<!-- VERSÃO DO ALUNO -->
+<h1>ATIVIDADE PRÁTICA: O MODELO DE DESPOLUIÇÃO</h1>
+
+<div class="header-box">
+  <p><strong>Nome do Aluno:</strong> ____________________________________________________ <strong>Data:</strong> ____/____/2026<br>
+  <strong>Turma:</strong> __________________ <strong>Disciplina:</strong> Matemática</p>
+</div>
+
+<h2>1. Contextualização</h2>
+<blockquote>
+  "Imagine um lago de águas cristalinas cercado por vegetação e fauna abundante. A comunidade local vive do lago, nadando e utilizando suas águas para consumo e sustentáculo. Porém, com o crescimento urbano desordenado, o esgoto e resíduos industriais passaram a ser descartados diretamente nele. O ecossistema entrou em colapso.<br><br>
+  Anos depois, projetos ambientais e biólogos interromperam a contaminação e contaram com a ação natural de microrganismos decompositores para realizar a purificação. Mas surge a grande dúvida dos engenheiros e da população local: <strong>Se interrompermos a poluição hoje, em quanto tempo o lago estará limpo de verdade? E como podemos calcular as chances cotidianas e os riscos associados a eventos futuros utilizando a Matemática?</strong>"
+</blockquote>
+
+<h2>2. Registro da Atividade Prática</h2>
+<p><strong>1.</strong> Na primeira troca, você retirou 400 mL do lago-modelo de 2.000 mL. Quantos mL de poluente puro foram removidos nessa operação?</p>
+<div class="space-box"></div>
+
+<p><strong>2.</strong> Após a 1ª troca e a reposição com água limpa, quantos mL de poluente restam no lago?</p>
+<div class="space-box"></div>
+
+<p><strong>3. Preencha a tabela abaixo com os dados calculados:</strong></p>
+<table>
+  <tr><th>Período ($n$)</th><th>Expressão de Cálculo</th><th>Volume Restante de Poluente ($a(n)$ em mL)</th></tr>
+  <tr><td>$n = 1$ (Início)</td><td>Dado Inicial</td><td>200 mL</td></tr>
+  <tr><td>$n = 2$ (1ª troca)</td><td>$200 - \frac{1}{5}(200)$</td><td>______ mL</td></tr>
+  <tr><td>$n = 3$ (2ª troca)</td><td>$160 - \frac{1}{5}(160)$</td><td>______ mL</td></tr>
+  <tr><td>$n = 4$ (3ª troca)</td><td></td><td>______ mL</td></tr>
+  <tr><td>$n = 5$ (4ª troca)</td><td></td><td>______ mL</td></tr>
+  <tr><td>$n$-ésimo dia</td><td><strong>Fórmula Geral:</strong> $a(n) =$</td><td></td></tr>
+</table>
+
+<h2>3. Ficha Avaliativa</h2>
+<p><strong>1.</strong> Ao retirar 20% do poluente presente a cada ciclo, a quantidade restante diminui segundo uma:<br>
+( a ) Progressão Aritmética de razão -40 mL<br>
+( b ) Progressão Geométrica de razão $q = 0,8$<br>
+( c ) Função Linear constante<br>
+( d ) Função Quadrática com ponto de mínimo em zero</p>
+
+<p><strong>2.</strong> "Se em cada troca tiramos 20% do poluente, em 5 trocas (5 x 20% = 100%) o lago estará totalmente limpo". A afirmação é verdadeira ou falsa? Justifique:</p>
+<div class="space-box"></div>
+
+<p><strong>3.</strong> Por que nossa intuição visual frequentemente falha ao avaliar fenômenos que progridem de forma exponencial ou geométrica em vez de linear?</p>
+<div class="space-box"></div>
+
+<p><strong>4.</strong> Se o volume inicial fosse de 1.000 mL e a taxa de purificação de 10% ao dia, a expressão no $n$-ésimo dia é:<br>
+( a ) $a(n) = 1000 - 100n$<br>
+( b ) $a(n) = 1000 \cdot (0,1)^{n-1}$<br>
+( c ) $a(n) = 1000 \cdot (0,9)^{n-1}$<br>
+( d ) $a(n) = 900 \cdot (0,1)^n$</p>
+
+<p><strong>5. Autoavaliação:</strong> O experimento ajudou a perceber como a Matemática prevê eventos futuros e calcula riscos reais sem depender de sorte ou senso comum? Explique:</p>
+<div class="space-box"></div>
+
+</body>
+</html>
